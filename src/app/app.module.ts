@@ -18,6 +18,7 @@ import { ListProductComponent } from './component/admin/list-product/list-produc
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

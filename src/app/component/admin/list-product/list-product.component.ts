@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { CategoryService } from 'src/app/services/category.service';
 
+import * as toastr from 'toastr';
 @Component({
   selector: 'app-list-product',
   templateUrl: './list-product.component.html',
@@ -24,5 +25,16 @@ export class ListProductComponent {
         })
       })
     })
+  }
+  HandleRemove(id: any) {
+    const ok = confirm('Bạn có muốn xóa ?')
+    if (ok == true) {
+      this.productService.Remove(id).subscribe(data => {
+        this.products = this.products.filter((p: any) => p._id !== id)
+        toastr.success("Bạn đã xóa thành công !")
+      })
+    }else{
+      toastr.error("Bạn đã hủy xóa !")
+    }
   }
 }
