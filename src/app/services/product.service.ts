@@ -9,4 +9,8 @@ export class ProductService {
   getAll(){
     return this.http.get(`http://localhost:8080/api/product`)
   }
+  Remove(id:string|number) {
+    return this.http.delete(`http://localhost:8080/api/product/${id}`)
+  }
+
 }
