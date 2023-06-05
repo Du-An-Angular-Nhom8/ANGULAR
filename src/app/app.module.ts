@@ -7,19 +7,22 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { DashbordComponent } from './component/admin/dashbord/dashbord.component';
 import { ListProductComponent } from './component/admin/list-product/list-product.component';
 import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
-
+import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     DashbordComponent,
     ListProductComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    AddCategoriesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],

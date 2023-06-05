@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ICategory } from '../interfaces/Category';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +17,8 @@ export class CategoryService {
   }
   RemoveCat(id:any) {
     return this.http.delete(`http://localhost:8080/api/category/${id}`)
+  }
+  addCategory(category: ICategory): Observable<ICategory> {
+    return this.http.post<ICategory>(`http://localhost:8080/api/category/add`, category)
   }
 }
