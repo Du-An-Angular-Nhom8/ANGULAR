@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
-import * as toastr from 'toastr';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.scss']
 })
-export class AddProductComponent {
+export class EditProductComponent {
   product: any = {
     name: "",
     price: 0,
@@ -20,16 +19,24 @@ export class AddProductComponent {
   }
   categories: any = []
   uploading: boolean = false;
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient) {
-    this.categoryService.getAllCat().subscribe(data => {
+  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param:ActivatedRoute) {
+    this.param.paramMap.subscribe(data=>{
+      const id = String(data.get('id'));
+      this.productService.getOne(id).subscribe((data:any)=>{
+        this.product=data.data
+        console.log(this.product);
+        
+      })
+    })
+    this.categoryService.getAllCat().subscribe((data:any) => {
       this.categories = data
     })
   }
-  HandleAdd() {
+  HandleEdit() {
     console.log(this.product)
-    this.productService.AddPro(this.product).subscribe(data => {
+    this.productService.EditPro(this.product).subscribe(data => {
       this.router.navigate(['/admin/products'])
-      toastr.success('Bạn đã thêm sản phẩm thành công !')
+      toastr.success('Bạn đã update sản phẩm thành công !')
     })
   }
   HandleUpload(fileInput: any) {
