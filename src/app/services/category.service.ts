@@ -13,4 +13,7 @@ export class CategoryService {
   getAllCat() {
     return this.http.get(`http://localhost:8080/api/category`)
   }
+  RemoveCat(id:any) {
+    return this.http.delete(`http://localhost:8080/api/category/${id}`)
+  }
 }
