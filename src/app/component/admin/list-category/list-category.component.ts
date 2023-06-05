@@ -12,7 +12,6 @@ export class ListCategoryComponent {
     this.categoryService.getAllCat().subscribe(data => {
       this.categorys = data
       console.log(this.categorys);
-
     })
   }
   HandleRemove(id: any) {
