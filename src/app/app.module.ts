@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { DashbordComponent } from './component/admin/dashbord/dashbord.component';
 import { ListProductComponent } from './component/admin/list-product/list-product.component';
+import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     DashbordComponent,
-    ListProductComponent
+    ListProductComponent,
+    ListCategoryComponent
   ],
   imports: [
     BrowserModule,
