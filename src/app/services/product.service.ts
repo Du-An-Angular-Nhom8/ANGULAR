@@ -12,5 +12,8 @@ export class ProductService {
   Remove(id:string|number) {
     return this.http.delete(`http://localhost:8080/api/product/${id}`)
   }
+  AddPro(pro:any) {
+    return this.http.post(`http://localhost:8080/api/product/add`,pro)
+  }
 
 }
