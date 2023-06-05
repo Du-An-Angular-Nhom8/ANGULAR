@@ -10,6 +10,7 @@ import { ListCategoryComponent } from './component/admin/list-category/list-cate
 import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
+import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { AddProductComponent } from './component/admin/add-product/add-product.c
     ListProductComponent,
     ListCategoryComponent,
     AddCategoriesComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

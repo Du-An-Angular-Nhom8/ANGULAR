@@ -6,6 +6,7 @@ import { ListProductComponent } from './component/admin/list-product/list-produc
 import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
 import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
+import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'dashbord', component: DashbordComponent },
       { path: 'products', component: ListProductComponent },
       { path: 'products/add', component: AddProductComponent },
+      { path: 'products/:id/edit', component: EditProductComponent },
       { path: 'category', component: ListCategoryComponent },
       { path: 'category/add', component: AddCategoriesComponent }
     ]

@@ -33,8 +33,8 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Add Product</h2>
-                    <form (ngSubmit)="HandleAdd()">
+                    <h2 class="title">Edit Product</h2>
+                    <form (ngSubmit)="HandleEdit()">
                         <div class="row row-space">
                             <div class="col">
                                 <div class="input-group">
@@ -47,7 +47,8 @@
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">Price</label>
-                                    <input class="input--style-4" type="number" name="price" [(ngModel)]="product.price">
+                                    <input class="input--style-4" type="number" name="price"
+                                        [(ngModel)]="product.price">
                                 </div>
                             </div>
                         </div>
@@ -55,10 +56,12 @@
                             <div class="col">
                                 <div class="input-group dpl">
                                     <label class="label">Category</label>
-                                    <select class="form-control w sl" name="categoryId" [(ngModel)]="product.categoryId" >
+                                    <select class="form-control w sl" name="categoryId"
+                                        [(ngModel)]="product.categoryId">
                                         <option value="all">All</option>
-                                        <option *ngFor="let category of categories" value="{{category._id}}" >{{category.name}}</option>
-                                    </select> 
+                                        <option *ngFor="let category of categories" value="{{category._id}}">
+                                            {{category.name}}</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -67,16 +70,19 @@
                                 <div class="input-group dpl">
                                     <label class="label">Description</label>
                                     <!-- <input class="input--style-4" type="email" name="email"> -->
-                                    <textarea class="form-control w sl" rows="3" cols="10" name="desc" [(ngModel)]="product.desc"></textarea>
+                                    <textarea class="form-control w sl" rows="3" cols="10" name="desc"
+                                        [(ngModel)]="product.desc"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="input-group">
                             <label class="label">Image</label>
-                            <input type="file" name="img" #fileInput class="form-control w sl" [(ngModel)]="product.img" (change)="HandleUpload(fileInput)" >
+                            <input type="file" name="img" #fileInput class="form-control w sl" [(ngModel)]="product.img"
+                                (change)="HandleUpload(fileInput)">
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit" [disabled]="uploading" >Add</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit"
+                                [disabled]="uploading">Edit</button>
                         </div>
                     </form>
                 </div>

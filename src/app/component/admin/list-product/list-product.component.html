@@ -48,7 +48,7 @@
                         <td>{{product.price}}</td>
                         <td>{{product.desc}}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm mrr" (click)="HandleRemove(product._id)">Remove  </button><button class="btn btn-success btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm mrr" (click)="HandleRemove(product._id)">Remove  </button><a href="/admin/products/{{product._id}}/edit"><button class="btn btn-success btn-sm">Edit</button></a>
                         </td>
                        
                     </tr>
