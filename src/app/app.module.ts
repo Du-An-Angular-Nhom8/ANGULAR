@@ -19,6 +19,7 @@ import { EditCategoriesComponent } from './component/admin/edit-categories/edit-
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './component/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { ToastrModule } from 'ngx-toastr';
     ListUserComponent,
     BaseClientComponent,
     EditCategoriesComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

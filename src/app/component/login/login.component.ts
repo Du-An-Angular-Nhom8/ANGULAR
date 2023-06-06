@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import * as toastr from 'toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,35 @@ export class LoginComponent {
     email: '',
     password: ''
   };
-  constructor(private http: HttpClient, private signupService: AuthService, private router: Router) { }
-  HandleLogin(event: any) {
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
+  HandleLogin() {
+    this.authService.Signin(this.user).subscribe((data: any) => {
+      console.log(this.user.email);
+
+
+      let check = false;
+      if (this.user.email != data.user.email && this.user.password != data.user.password) {
+        toastr.error('Thông tin đăng nhập sai. Hãy kiểm tra lại !');
+        check = true;
+
+      } else {
+        if (data.user.role == 'admin') {
+          toastr.success('Đăng nhập thành công Admin');
+          localStorage.setItem('user', JSON.stringify(data))
+          this.router.navigate(['/admin']);
+        } else {
+          toastr.success('Đăng nhập thành công');
+          localStorage.setItem('user', JSON.stringify(data))
+          this.router.navigate(['/']);
+        }
+
+        check = true;
+      }
+
+      if (check) {
+        return
+      }
+    })
 
   }
 }
