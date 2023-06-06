@@ -8,6 +8,7 @@ import { AddCategoriesComponent } from './component/admin/add-categories/add-cat
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
+import { BaseClientComponent } from './layout/base-client/base-client.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,10 @@ const routes: Routes = [
       { path: 'category/add', component: AddCategoriesComponent },
       { path: 'users', component: ListUserComponent },
     ]
-  }
+  },
+  {path: '', component:BaseClientComponent ,children:[
+    
+  ]}
 ];
 
 @NgModule({
