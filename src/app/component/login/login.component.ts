@@ -27,13 +27,13 @@ export class LoginComponent {
 
       } else {
         if (data.user.role == 'admin') {
-          toastr.success('Đăng nhập thành công Admin');
           localStorage.setItem('user', JSON.stringify(data))
           this.router.navigate(['/admin']);
+          toastr.success('Đăng nhập thành công Admin');
         } else {
-          toastr.success('Đăng nhập thành công');
           localStorage.setItem('user', JSON.stringify(data))
           this.router.navigate(['/']);
+          toastr.success('Đăng nhập thành công');
         }
 
         check = true;
