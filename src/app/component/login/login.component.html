@@ -23,94 +23,100 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
   </head>
-  <section class="vh-100 bg-image">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-      <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card mrt" style="border-radius: 15px">
-              <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-5">Signin</h2>
+  <body>
+    <section class="">
+      <div class="">
+        <div class="">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="form-rong">
+              <div class="card mrt" style="border-radius: 15px">
+                <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center mb-5">Sign in</h2>
 
-                <form [formGroup]="userForm" (ngSubmit)="HandleLogin()">
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg">
-                      Email</label
-                    >
-                    <input
-                      type="texy"
-                      id="email"
-                      class="form-control form-control-lg"
-                      name="email"
-                      formControlName="email"
-                    />
-                    <!-- validate email -->
+                  <form [formGroup]="userForm" (ngSubmit)="HandleLogin()">
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example1cg">
+                        Email</label
+                      >
+                      <input
+                        type="texy"
+                        id="email"
+                        class="form-control form-control-lg"
+                        name="email"
+                        formControlName="email"
+                      />
+                      <!-- validate email -->
 
-                    <div
-                      *ngIf="
-                        validateForm.email.dirty || validateForm.email.touched
-                      "
-                    >
-                      <div *ngIf="validateForm.email.errors">
-                        <div *ngIf="validateForm.email.errors['required']">
-                          <span>Email không được để trống!</span>
+                      <div
+                        *ngIf="
+                          validateForm.email.dirty || validateForm.email.touched
+                        "
+                      >
+                        <div *ngIf="validateForm.email.errors">
+                          <div *ngIf="validateForm.email.errors['required']">
+                            <span>Email không được để trống!</span>
+                          </div>
+                          <div *ngIf="validateForm.email.errors['pattern']">
+                            <span
+                              >Email không hợp lệ hoặc chưa được đăng ký!</span
+                            >
+                          </div>
                         </div>
-                        <div *ngIf="validateForm.email.errors['pattern']">
-                          <span
-                            >Email không hợp lệ hoặc chưa được đăng ký!</span
+                      </div>
+
+                      <!-- end validate email -->
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example1cg"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control form-control-lg"
+                        name="password"
+                        formControlName="password"
+                      />
+                      <!-- validate password -->
+
+                      <div
+                        *ngIf="
+                          validateForm.password.dirty ||
+                          validateForm.password.touched
+                        "
+                      >
+                        <div *ngIf="validateForm.password.errors">
+                          <div *ngIf="validateForm.password.errors['required']">
+                            <span>Password không được để trống!</span>
+                          </div>
+                          <div
+                            *ngIf="validateForm.password.errors['minlength']"
                           >
+                            <span>Password không được ít hơn 8 ký tự</span>
+                          </div>
                         </div>
                       </div>
+
+                      <!-- end validate password -->
                     </div>
 
-                    <!-- end validate email -->
-                  </div>
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg"
-                      >Password</label
-                    >
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control form-control-lg"
-                      name="password"
-                      formControlName="password"
-                    />
-                    <!-- validate password -->
-
-                    <div
-                      *ngIf="
-                        validateForm.password.dirty ||
-                        validateForm.password.touched
-                      "
-                    >
-                      <div *ngIf="validateForm.password.errors">
-                        <div *ngIf="validateForm.password.errors['required']">
-                          <span>Password không được để trống!</span>
-                        </div>
-                        <div *ngIf="validateForm.password.errors['minlength']">
-                          <span>Password không được ít hơn 8 ký tự</span>
-                        </div>
-                      </div>
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        class="btn btn-success btn-block btn-lg gradient-custom-4"
+                      >
+                        Signin
+                      </button>
                     </div>
-
-                    <!-- end validate password -->
-                  </div>
-
-                  <div class="d-flex justify-content-center">
-                    <button
-                      type="submit"
-                      class="btn btn-success btn-block btn-lg gradient-custom-4"
-                    >
-                      Signin
-                    </button>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </body>
 </html>
