@@ -183,8 +183,8 @@
 
                 <!-- end validate img -->
               </div>
-              <div class="p-t-15" *ngIf="productForm.valid">
-                <button class="btn btn--radius-2 btn--blue" type="submit">
+              <div class="p-t-15"  *ngIf="productForm.valid">
+                <button class="btn btn--radius-2 btn--blue" [disabled]="uploading" type="submit">
                   Add
                 </button>
               </div>
