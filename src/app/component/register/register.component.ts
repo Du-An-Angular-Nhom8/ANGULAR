@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import * as toastr from 'toastr';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -19,14 +19,14 @@ export class RegisterComponent {
     image: "",
   }
   uploading: any = []
-  constructor(private http: HttpClient, private signupService: AuthService, private router: Router, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private signupService: AuthService, private router: Router) { }
   HandleSignup() {
     console.log(this.user)
     this.signupService.Signup(this.user).subscribe(data=>{
-      
+
       this.router.navigate(['/login'])
-      this.toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !')
-      
+      toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !')
+
     })
   }
 
