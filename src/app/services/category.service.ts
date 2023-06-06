@@ -21,4 +21,7 @@ export class CategoryService {
   addCategory(category: ICategory): Observable<ICategory> {
     return this.http.post<ICategory>(`http://localhost:8080/api/category/add`, category)
   }
+  updateCategory(category: ICategory): Observable<ICategory> {
+    return this.http.put<ICategory>(`http://localhost:8080/api/category/${category._id}/edit`, category)
+  }
 }
