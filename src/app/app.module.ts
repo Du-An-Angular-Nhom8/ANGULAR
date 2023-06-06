@@ -14,7 +14,9 @@ import { EditProductComponent } from './component/admin/edit-product/edit-produc
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
 import { BaseClientComponent } from './layout/base-client/base-client.component';
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
-import { LoginComponent } from './component/admin/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +30,13 @@ import { LoginComponent } from './component/admin/login/login.component';
     ListUserComponent,
     BaseClientComponent,
     EditCategoriesComponent,
-    LoginComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule, ToastrModule.forRoot(), BrowserAnimationsModule
 
   ],
   providers: [],

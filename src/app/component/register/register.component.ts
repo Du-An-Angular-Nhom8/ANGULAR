@@ -1,45 +1,35 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from 'src/app/services/category.service';
-import { ProductService } from 'src/app/services/product.service';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import * as toastr from 'toastr';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-edit-product',
-  templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class EditProductComponent {
-  product: any = {
+export class RegisterComponent {
+  user: any = {
     name: "",
-    price: 0,
-    img: "",
-    desc: "",
-    categoryId: ""
+    email: "",
+    password: "",
+    confirmpassword:"",
+    image: "",
   }
-  categories: any = []
-  uploading: boolean = false;
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param: ActivatedRoute, private toastr: ToastrService) {
-    this.param.paramMap.subscribe(data=>{
-      const id = String(data.get('id'));
-      this.productService.getOne(id).subscribe((data:any)=>{
-        this.product=data.data
-        console.log(this.product);
-        
-      })
-    })
-    this.categoryService.getAllCat().subscribe((data:any) => {
-      this.categories = data
+  uploading: any = []
+  constructor(private http: HttpClient, private signupService: AuthService, private router: Router, private toastr: ToastrService) { }
+  HandleSignup() {
+    console.log(this.user)
+    this.signupService.Signup(this.user).subscribe(data=>{
+      
+      this.router.navigate(['/login'])
+      this.toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !')
+      
     })
   }
-  HandleEdit() {
-    console.log(this.product)
-    this.productService.EditPro(this.product).subscribe(data => {
-      this.router.navigate(['/admin/products'])
-      this.toastr.success('Bạn đã update sản phẩm thành công !')
-    })
-  }
+
   HandleUpload(fileInput: any) {
     this.uploading = true;
     const file: File = fileInput.files[0];
@@ -57,7 +47,7 @@ export class EditProductComponent {
         const imageUrl = data.secure_url;
         console.log(imageUrl) // In đường dẫn URL của ảnh đã tải lên từ Cloudinary
         // Gán giá trị vào thuộc tính product.img
-        this.product.img = imageUrl;
+        this.user.image = imageUrl;
         // Tại đây, bạn có thể sử dụng đường dẫn URL để thực hiện các thao tác khác hoặc lưu vào biến trong ứng dụng của bạn
         this.uploading = false; // Cập nhật biến cờ khi hoàn thành quá trình tải lên
         alert('thanh cong')
@@ -68,3 +58,4 @@ export class EditProductComponent {
         });
   }
 }
+

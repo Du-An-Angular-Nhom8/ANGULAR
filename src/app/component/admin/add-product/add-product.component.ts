@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
-import * as toastr from 'toastr';
+// import * as toastr from 'toastr';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-product',
@@ -20,7 +21,8 @@ export class AddProductComponent {
   }
   categories: any = []
   uploading: boolean = false;
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient) {
+
+  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private toastr: ToastrService) {
     this.categoryService.getAllCat().subscribe(data => {
       this.categories = data
     })
@@ -28,8 +30,11 @@ export class AddProductComponent {
   HandleAdd() {
     console.log(this.product)
     this.productService.AddPro(this.product).subscribe(data => {
-      this.router.navigate(['/admin/products'])
-      toastr.success('Bạn đã thêm sản phẩm thành công !')
+     
+      this.toastr.success('Bạn đã thêm sản phẩm thành công !')
+      setTimeout(() => {
+        this.router.navigate(['/admin/products'])
+      },1000)
     })
   }
   HandleUpload(fileInput: any) {

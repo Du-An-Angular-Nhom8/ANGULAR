@@ -10,6 +10,8 @@ import { ListUserComponent } from './component/admin/list-user/list-user.compone
 import { BaseClientComponent } from './layout/base-client/base-client.component';
 import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 const routes: Routes = [
   {
@@ -26,8 +28,11 @@ const routes: Routes = [
     ]
   },
   {path: '', component:BaseClientComponent ,children:[
+   
     
-  ]}
+  ]
+  }, { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
