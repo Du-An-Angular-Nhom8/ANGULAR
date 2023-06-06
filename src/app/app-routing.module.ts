@@ -12,6 +12,7 @@ import { AddCategoriesComponent } from './component/admin/add-categories/add-cat
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { HomePageComponent } from './component/page/home-page/home-page.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
     ]
   },
   {path: '', component:BaseClientComponent ,children:[
-   
+    { path: '', component: HomePageComponent },
     
   ]
   }, { path: 'register', component: RegisterComponent },

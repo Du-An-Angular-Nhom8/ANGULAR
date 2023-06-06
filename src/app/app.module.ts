@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './component/login/login.component';
+import { HomePageComponent } from './component/page/home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { LoginComponent } from './component/login/login.component';
     BaseClientComponent,
     EditCategoriesComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
