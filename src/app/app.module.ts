@@ -14,6 +14,7 @@ import { EditProductComponent } from './component/admin/edit-product/edit-produc
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
 import { BaseClientComponent } from './layout/base-client/base-client.component';
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
+import { LoginComponent } from './component/admin/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { EditCategoriesComponent } from './component/admin/edit-categories/edit-
     EditProductComponent,
     ListUserComponent,
     BaseClientComponent,
-    EditCategoriesComponent
+    EditCategoriesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
