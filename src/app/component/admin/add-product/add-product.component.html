@@ -64,6 +64,9 @@
                         <div *ngIf="validateForm.name.errors['minlength']">
                           <span>Name không được ít hơn 8 ký tự!</span>
                         </div>
+                        <div *ngIf="validateForm.name.errors['pattern']">
+                          <span>Name không ch phép bạn space quá 2 lần!</span>
+                        </div>
                       </div>
                     </div>
                     <!-- end validate name -->
@@ -183,8 +186,12 @@
 
                 <!-- end validate img -->
               </div>
-              <div class="p-t-15"  *ngIf="productForm.valid">
-                <button class="btn btn--radius-2 btn--blue" [disabled]="uploading" type="submit">
+              <div class="p-t-15" *ngIf="productForm.valid">
+                <button
+                  class="btn btn--radius-2 btn--blue"
+                  [disabled]="uploading"
+                  type="submit"
+                >
                   Add
                 </button>
               </div>
