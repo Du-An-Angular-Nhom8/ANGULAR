@@ -25,8 +25,20 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg"> Category Name</label>
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="name" [(ngModel)]="category.name" />
-                  
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" required minlength="4" appForbiddenName="bob" name="name" [(ngModel)]="category.name" />
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert">
+
+  <div *ngIf="name.errors?.['required']">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="name.errors?.['forbiddenName']">
+    Name cannot be Bob.
+  </div>
+  </div>
                 </div>
 
 
