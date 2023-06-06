@@ -26,7 +26,6 @@ export class RegisterComponent {
 
       this.router.navigate(['/login'])
       toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !')
-
     })
   }
 
