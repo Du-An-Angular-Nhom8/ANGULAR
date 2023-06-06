@@ -3,6 +3,7 @@ import { Router, Routes } from '@angular/router';
 import { ICategory } from 'src/app/interfaces/Category';
 import { CategoryService } from 'src/app/services/category.service';
 import * as toastr from 'toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-categories',
@@ -14,14 +15,14 @@ export class AddCategoriesComponent {
     name: "",
     
   }
-  constructor(private categoryService: CategoryService, private route:Router) {
+  constructor(private categoryService: CategoryService, private route: Router, private toastr: ToastrService) {
 
   }
   HandleAdd() {
     this.categoryService.addCategory(this.category).subscribe(category => {
       console.log(category);
       this.route.navigate(['/admin/category'])
-      toastr.success('Thêm thành công danh mục !!')
+      this.toastr.success('Thêm thành công danh mục !!')
     })
   }
 }
