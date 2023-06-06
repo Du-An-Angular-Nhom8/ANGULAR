@@ -16,6 +16,7 @@ import { BaseClientComponent } from './layout/base-client/base-client.component'
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { RegisterComponent } from './component/register/register.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule
 
   ],
   providers: [],
