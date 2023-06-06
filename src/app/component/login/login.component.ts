@@ -15,9 +15,6 @@ export class LoginComponent {
     email: '',
     password: ''
   };
-
-
-
   //
   userForm = this.formBuilder.group({
     email:['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
@@ -33,6 +30,10 @@ export class LoginComponent {
 
 
   HandleLogin() {
+    this.user ={
+      email:this.userForm.value.email || "",
+      password:this.userForm.value.password || ""
+    }
     this.authService.Signin(this.user).subscribe((data: any) => {
       console.log(this.user.email);
       let check = false;

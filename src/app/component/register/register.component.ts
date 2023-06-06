@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import * as toastr from 'toastr';
+import { FormBuilder } from '@angular/forms';
 // import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -18,8 +19,19 @@ export class RegisterComponent {
     confirmpassword:"",
     image: "",
   }
+  userForm = this.formBuilder.group({
+    name:[''],
+    email:[''],
+    password:[''],
+    confirmpassword:[''],
+    image:['']
+  })
+  get validateForm(){
+    return this.userForm.controls
+  }
+  
   uploading: any = []
-  constructor(private http: HttpClient, private signupService: AuthService, private router: Router) { }
+  constructor(private http: HttpClient, private signupService: AuthService, private router: Router,private formBuilder:FormBuilder) { }
   HandleSignup() {
     console.log(this.user)
     this.signupService.Signup(this.user).subscribe(data=>{
