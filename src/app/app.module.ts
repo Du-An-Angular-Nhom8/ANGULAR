@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
+import { BaseClientComponent } from './layout/base-client/base-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ListUserComponent } from './component/admin/list-user/list-user.compone
     AddCategoriesComponent,
     AddProductComponent,
     EditProductComponent,
-    ListUserComponent
+    ListUserComponent,
+    BaseClientComponent
   ],
   imports: [
     BrowserModule,
