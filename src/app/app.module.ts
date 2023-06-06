@@ -11,6 +11,7 @@ import { AddCategoriesComponent } from './component/admin/add-categories/add-cat
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
+import { ListUserComponent } from './component/admin/list-user/list-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { EditProductComponent } from './component/admin/edit-product/edit-produc
     ListCategoryComponent,
     AddCategoriesComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
