@@ -13,16 +13,16 @@ import { ToastrService } from 'ngx-toastr';
 export class AddCategoriesComponent {
   category: ICategory= {
     name: "",
-    
+
   }
-  constructor(private categoryService: CategoryService, private route: Router, private toastr: ToastrService) {
+  constructor(private categoryService: CategoryService, private route: Router) {
 
   }
   HandleAdd() {
     this.categoryService.addCategory(this.category).subscribe(category => {
       console.log(category);
       this.route.navigate(['/admin/category'])
-      this.toastr.success('Thêm thành công danh mục !!')
+      toastr.success('Thêm thành công danh mục !!')
     })
   }
 }
