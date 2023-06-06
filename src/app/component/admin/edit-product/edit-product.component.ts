@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-product',
@@ -19,7 +20,7 @@ export class EditProductComponent {
   }
   categories: any = []
   uploading: boolean = false;
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param:ActivatedRoute) {
+  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param: ActivatedRoute, private toastr: ToastrService) {
     this.param.paramMap.subscribe(data=>{
       const id = String(data.get('id'));
       this.productService.getOne(id).subscribe((data:any)=>{
@@ -36,7 +37,7 @@ export class EditProductComponent {
     console.log(this.product)
     this.productService.EditPro(this.product).subscribe(data => {
       this.router.navigate(['/admin/products'])
-      toastr.success('Bạn đã update sản phẩm thành công !')
+      this.toastr.success('Bạn đã update sản phẩm thành công !')
     })
   }
   HandleUpload(fileInput: any) {
