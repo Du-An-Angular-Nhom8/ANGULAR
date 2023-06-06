@@ -34,13 +34,19 @@ export class LoginComponent {
       email:this.userForm.value.email || "",
       password:this.userForm.value.password || ""
     }
+   
+
+    this.user = {
+      email: this.userForm.value.email || "",
+      password: this.userForm.value.password || 0
+    }
+    console.log(this.user);
     this.authService.Signin(this.user).subscribe((data: any) => {
       console.log(this.user.email);
       let check = false;
       if (this.user.email != data.user.email && this.user.password != data.user.password) {
         toastr.error('Thông tin đăng nhập sai. Hãy kiểm tra lại !');
         check = true;
-
       } else {
         if (data.user.role == 'admin') {
           localStorage.setItem('user', JSON.stringify(data))
