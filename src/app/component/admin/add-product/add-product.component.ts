@@ -20,7 +20,9 @@ export class AddProductComponent {
     categoryId: ""
   }
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(8)]],
+    name: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(8),Validators.pattern(/^\S+(?:\s\S+)*$/
+
+    )]],
     price: [0, [Validators.min(1)]],
     img: ['', [Validators.required]],
     desc: ['', [Validators.required]],
