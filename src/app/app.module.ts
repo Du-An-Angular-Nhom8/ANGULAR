@@ -13,6 +13,7 @@ import { AddProductComponent } from './component/admin/add-product/add-product.c
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
 import { BaseClientComponent } from './layout/base-client/base-client.component';
+import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { BaseClientComponent } from './layout/base-client/base-client.component'
     AddProductComponent,
     EditProductComponent,
     ListUserComponent,
-    BaseClientComponent
+    BaseClientComponent,
+    EditCategoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -4,11 +4,12 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { DashbordComponent } from './component/admin/dashbord/dashbord.component';
 import { ListProductComponent } from './component/admin/list-product/list-product.component';
 import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
-import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
 import { ListUserComponent } from './component/admin/list-user/list-user.component';
 import { BaseClientComponent } from './layout/base-client/base-client.component';
+import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
+import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'category', component: ListCategoryComponent },
       { path: 'category/add', component: AddCategoriesComponent },
       { path: 'users', component: ListUserComponent },
+      {path:'category/:id/edit',component: EditCategoriesComponent}
     ]
   },
   {path: '', component:BaseClientComponent ,children:[
