@@ -7,19 +7,38 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
   getAll(){
+    
     return this.http.get(`http://localhost:8080/api/product`)
   }
   getOne(id: string | number) {
     return this.http.get(`http://localhost:8080/api/product/${id}`)
   }
   Remove(id:string|number) {
-    return this.http.delete(`http://localhost:8080/api/product/${id}`)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.delete(`http://localhost:8080/api/product/${id}`,{
+      headers:{
+            Authorization: `Bearer ${ accessToken }`
+        }
+    })
   }
   AddPro(pro:any) {
-    return this.http.post(`http://localhost:8080/api/product/add`,pro)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.post(`http://localhost:8080/api/product/add`,pro,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
   }
   EditPro(pro: any) {
-    return this.http.put(`http://localhost:8080/api/product/${pro._id}/edit`, pro)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.put(`http://localhost:8080/api/product/${pro._id}/edit`, pro,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
   }
 
 }
