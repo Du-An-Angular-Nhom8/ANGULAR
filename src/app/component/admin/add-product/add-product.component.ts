@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
-// import * as toastr from 'toastr';
+import * as toastr from 'toastr';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -12,30 +12,56 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-  product: any = {
-    name: "",
-    price: 0,
-    img: "",
-    desc: "",
-    categoryId: ""
-  }
+  // product: any = {
+  //   name: "",
+  //   price: 0,
+  //   img: "",
+  //   desc: "",
+  //   categoryId: ""
+  // }
+  productForm = this.formBuilder.group({
+    name:['',[Validators.required,Validators.maxLength(20),Validators.minLength(8)]],
+    price:[0,[Validators.min(1)]],
+    img:['',[Validators.required]],
+    desc:['',[Validators.required]],
+    categoryId:['',[Validators.required]]
+  })
   categories: any = []
   uploading: boolean = false;
-
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private toastr: ToastrService) {
+  constructor(private productService: ProductService,private formBuilder:FormBuilder, private router: Router, private categoryService: CategoryService, private http: HttpClient) {
     this.categoryService.getAllCat().subscribe(data => {
       this.categories = data
     })
   }
-  HandleAdd() {
-    console.log(this.product)
-    this.productService.AddPro(this.product).subscribe(data => {
-     
-      this.toastr.success('Bạn đã thêm sản phẩm thành công !')
-      setTimeout(() => {
+  // HandleAdd() {
+  //   console.log(this.product)
+  //   this.productService.AddPro(this.product).subscribe(data => {
+  //     this.router.navigate(['/admin/products'])
+  //     toastr.success('Bạn đã thêm sản phẩm thành công !')
+  //   })
+  // }
+
+  // lay truong du lieu ra tu productForm
+  get validateForm(){
+    return this.productForm.controls
+  }
+  //
+  onHandleSubmit(){
+    if(this.productForm.valid){
+      const product:any={
+        name:this.productForm.value.name || "",
+        price:this.productForm.value.price || 0,
+        img:this.productForm.value.img || "",
+        desc:this.productForm.value.desc || "",
+        categoryId:this.productForm.value.categoryId || "",
+      }
+      this.productService.AddPro(product).subscribe(data=>{
+        // console.log(data);
         this.router.navigate(['/admin/products'])
-      },1000)
-    })
+        toastr.success('Bạn đã thêm sản phẩm thành công !')
+
+      })
+    }
   }
   HandleUpload(fileInput: any) {
     this.uploading = true;
@@ -54,7 +80,8 @@ export class AddProductComponent {
         const imageUrl = data.secure_url;
         console.log(imageUrl) // In đường dẫn URL của ảnh đã tải lên từ Cloudinary
         // Gán giá trị vào thuộc tính product.img
-        this.product.img = imageUrl;
+        // this.product.img = imageUrl;
+        this.productForm.patchValue({ img: imageUrl });
         // Tại đây, bạn có thể sử dụng đường dẫn URL để thực hiện các thao tác khác hoặc lưu vào biến trong ứng dụng của bạn
         this.uploading = false; // Cập nhật biến cờ khi hoàn thành quá trình tải lên
         alert('thanh cong')
