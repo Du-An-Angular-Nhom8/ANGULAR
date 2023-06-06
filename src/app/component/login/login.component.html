@@ -21,7 +21,7 @@
             <div class="card-body p-5 ">
               <h2 class="text-uppercase text-center mb-5">Signin</h2>
 
-              <form (ngSubmit)="HandleLogin($event)">
+              <form (ngSubmit)="HandleLogin()">
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">  Email</label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Password</label>
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="password"  />
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="password" [(ngModel)]="user.password" />
                     
                   </div>
 

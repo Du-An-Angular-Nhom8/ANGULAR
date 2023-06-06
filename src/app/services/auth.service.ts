@@ -10,4 +10,7 @@ export class AuthService {
   Signup(user:any) {
     return this.http.post(`http://localhost:8080/api/signup`,user)
   }
+  Signin(user: any) {
+    return this.http.post(`http://localhost:8080/api/signin`, user)
+  }
 }
