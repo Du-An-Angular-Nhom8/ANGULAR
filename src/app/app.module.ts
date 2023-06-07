@@ -9,7 +9,7 @@ import { ListProductComponent } from './component/admin/list-product/list-produc
 import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
 import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomePageComponent } from './component/page/home-page/home-page.component';
-
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,7 @@ import { HomePageComponent } from './component/page/home-page/home-page.componen
     BaseClientComponent,
     EditCategoriesComponent,
     RegisterComponent,
-  
+    HomePageComponent,
     LoginComponent
   ],
   imports: [
