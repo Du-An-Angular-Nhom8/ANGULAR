@@ -44,7 +44,7 @@ import { HomePageComponent } from './component/page/home-page/home-page.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-   
+
     CommonModule
 
   ],
