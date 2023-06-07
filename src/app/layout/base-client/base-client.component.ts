@@ -20,16 +20,14 @@ export class BaseClientComponent {
     this.router.navigate(['/'])
 
   }
-  isLoggedIn():boolean {
-    const user = JSON.parse(localStorage.getItem('user')!)
+  isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
-    this.user = user.user
+    this.user = user;
     console.log(this.user);
-    if(user){
-      return true
+    if (accessToken) {
+      return true;
     }
-    // Kiểm tra xem người dùng đã đăng nhập hay chưa
-    // Trả về true nếu đã đăng nhập và false nếu chưa
     return false;
   }
   logout() {
