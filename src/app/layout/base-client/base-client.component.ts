@@ -33,7 +33,7 @@ export class BaseClientComponent {
   logout() {
     // Xử lý đăng xuất
     localStorage.removeItem('user')
-    toastr.success('Bạn đã đăng xuất .')
+   alert('Bạn đã đăng xuất.')
     this.router.navigate(['/'])
   }
 }

@@ -23,6 +23,7 @@ import { HomePageComponent } from './component/page/home-page/home-page.componen
 import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from './component/page/product-detail/product-detail.component';
 import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
+import { AuthGuardService } from './prive-router.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { ProductCatComponent } from './component/page/product-cat/product-cat.co
     HomePageComponent,
     LoginComponent,
     ProductDetailComponent,
-    ProductCatComponent
+    ProductCatComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { ProductCatComponent } from './component/page/product-cat/product-cat.co
     CommonModule
 
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
