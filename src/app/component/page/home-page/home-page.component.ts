@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,9 +9,19 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HomePageComponent {
    products:any=[]
-   constructor(private productService:ProductService){
+   producttrandy:any=[]
+   categories:any=[]
+   constructor(private productService:ProductService, private categoryService:CategoryService){
     this.productService.getNewproduct().subscribe((data:any)=>{
       this.products=data.data
+    })
+    this.productService.getTrandy().subscribe((data:any)=>{
+      this.producttrandy=data.data
+    })
+    this.categoryService.getAllCat().subscribe(data=>{
+      this.categories=data
+      console.log(data);
+      
     })
    }
 }

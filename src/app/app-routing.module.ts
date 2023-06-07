@@ -13,6 +13,7 @@ import { EditCategoriesComponent } from './component/admin/edit-categories/edit-
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomePageComponent } from './component/page/home-page/home-page.component';
+import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
 
 
 const routes: Routes = [
@@ -31,11 +32,11 @@ const routes: Routes = [
   },
   {path: '', component:BaseClientComponent ,children:[
     { path: '', component: HomePageComponent },
-    
+    { path: 'product/:id/category', component: ProductCatComponent },
   ]
   }, { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-
+  
 ];
 
 @NgModule({

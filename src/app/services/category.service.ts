@@ -16,12 +16,30 @@ export class CategoryService {
     return this.http.get(`http://localhost:8080/api/category`)
   }
   RemoveCat(id:any) {
-    return this.http.delete(`http://localhost:8080/api/category/${id}`)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.delete(`http://localhost:8080/api/category/${id}`,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
   }
   addCategory(category: ICategory): Observable<ICategory> {
-    return this.http.post<ICategory>(`http://localhost:8080/api/category/add`, category)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.post<ICategory>(`http://localhost:8080/api/category/add`, category,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
   }
   updateCategory(category: ICategory): Observable<ICategory> {
-    return this.http.put<ICategory>(`http://localhost:8080/api/category/${category._id}/edit`, category)
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.put<ICategory>(`http://localhost:8080/api/category/${category._id}/edit`, category,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
   }
 }
