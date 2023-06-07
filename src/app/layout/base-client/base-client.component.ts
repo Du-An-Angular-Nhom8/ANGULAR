@@ -7,11 +7,35 @@ import * as toastr from 'toastr';
   styleUrls: ['./base-client.component.scss']
 })
 export class BaseClientComponent {
+  user:any={
+    name:"",
+    image:"",
+    email:"",
+    password:"",
+  };
   constructor(private router:Router){}
   HandleLogOut(){
     localStorage.removeItem('user')
     toastr.success('Bạn đã đăng xuất .')
     this.router.navigate(['/'])
 
+  }
+  isLoggedIn():boolean {
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    this.user = user.user
+    console.log(this.user);
+    if(user){
+      return true
+    }
+    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+    // Trả về true nếu đã đăng nhập và false nếu chưa
+    return false;
+  }
+  logout() {
+    // Xử lý đăng xuất
+    localStorage.removeItem('user')
+    toastr.success('Bạn đã đăng xuất .')
+    this.router.navigate(['/'])
   }
 }

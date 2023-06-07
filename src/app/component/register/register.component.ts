@@ -49,11 +49,12 @@ export class RegisterComponent {
         confirmpassword: this.userForm.value.confirmpassword || "",
         image: this.userForm.value.image || "",
       }
-
-      this.signupService.Signup(this.user).subscribe(data => {
-        this.router.navigate(['/login']);
-        toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
-      });
+      console.log(this.user);
+      
+      // this.signupService.Signup(this.user).subscribe(data => {
+      //   this.router.navigate(['/login']);
+      //   toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
+      // });
     }
   }
 
