@@ -13,6 +13,9 @@ export class ProductService {
   getNewproduct() {
     return this.http.get(`http://localhost:8080/api/product?_sort=createdAt&_order=desc&_limit=8&_page=1`)
   }
+  getTrandy() {
+    return this.http.get(`http://localhost:8080/api/product?_sort=createdAt&_order=asc&_limit=8&_page=1`)
+  }
   getOne(id: string | number) {
     return this.http.get(`http://localhost:8080/api/product/${id}`)
   }

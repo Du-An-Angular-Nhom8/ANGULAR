@@ -21,6 +21,8 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomePageComponent } from './component/page/home-page/home-page.component';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from './component/page/product-detail/product-detail.component';
+import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { CommonModule } from '@angular/common';
     EditCategoriesComponent,
     RegisterComponent,
     HomePageComponent,
-    LoginComponent
+    LoginComponent,
+    ProductDetailComponent,
+    ProductCatComponent
   ],
   imports: [
     BrowserModule,
