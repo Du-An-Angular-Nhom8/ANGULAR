@@ -14,6 +14,7 @@ import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomePageComponent } from './component/page/home-page/home-page.component';
 
+
 const routes: Routes = [
   {
     path: 'admin', component: AdminLayoutComponent, children: [
@@ -34,6 +35,7 @@ const routes: Routes = [
   ]
   }, { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+
 ];
 
 @NgModule({

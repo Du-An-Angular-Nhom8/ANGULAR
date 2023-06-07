@@ -18,9 +18,9 @@ import { BaseClientComponent } from './layout/base-client/base-client.component'
 import { EditCategoriesComponent } from './component/admin/edit-categories/edit-categories.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
-import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './component/login/login.component';
 import { HomePageComponent } from './component/page/home-page/home-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +35,8 @@ import { HomePageComponent } from './component/page/home-page/home-page.componen
     BaseClientComponent,
     EditCategoriesComponent,
     RegisterComponent,
-    LoginComponent,
-    HomePageComponent
+  
+    LoginComponent
   ],
   imports: [
     BrowserModule,
