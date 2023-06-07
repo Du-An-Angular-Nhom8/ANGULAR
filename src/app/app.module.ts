@@ -44,7 +44,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-   
+
     CommonModule
 
   ],

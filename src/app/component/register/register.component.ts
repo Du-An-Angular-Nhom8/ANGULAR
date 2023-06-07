@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import * as toastr from 'toastr';
-import { FormBuilder } from '@angular/forms';
-// import { ToastrService } from 'ngx-toastr';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -19,26 +18,43 @@ export class RegisterComponent {
     confirmpassword:"",
     image: "",
   }
-  userForm = this.formBuilder.group({
-    name:[''],
-    email:[''],
-    password:[''],
-    confirmpassword:[''],
-    image:['']
-  })
-  get validateForm(){
-    return this.userForm.controls
-  }
-  
-  uploading: any = []
-  constructor(private http: HttpClient, private signupService: AuthService, private router: Router,private formBuilder:FormBuilder) { }
-  HandleSignup() {
-    console.log(this.user)
-    this.signupService.Signup(this.user).subscribe(data=>{
 
-      this.router.navigate(['/login'])
-      toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !')
-    })
+  userForm = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.maxLength(225), Validators.minLength(8), Validators.pattern(/^\S+(?:\s\S+)*$/)]],
+    email:['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
+    password:['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+    confirmpassword:['', [Validators.required]],
+    image:['',[Validators.required]]
+  })
+
+  uploading: any = [];
+
+  constructor(
+    private http: HttpClient,
+    private signupService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
+
+  get validateForm() {
+    return this.userForm.controls;
+  }
+
+  HandleSignup() {
+    if (this.userForm.valid) {
+      this.user = {
+        name: this.userForm.value.name || "",
+        email: this.userForm.value.email || "",
+        password: this.userForm.value.password || "",
+        confirmpassword: this.userForm.value.confirmpassword || "",
+        image: this.userForm.value.image || "",
+      }
+
+      this.signupService.Signup(this.user).subscribe(data => {
+        this.router.navigate(['/login']);
+        toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
+      });
+    }
   }
 
   HandleUpload(fileInput: any) {
@@ -53,20 +69,17 @@ export class RegisterComponent {
     formdata.append('upload_preset', preset_name)
     formdata.append('folder', folder_name)
     formdata.append('file', file)
-    this.http.post(api, formdata)
-      .subscribe((data: any) => {
+    this.http.post(api, formdata).subscribe((data: any) => {
         const imageUrl = data.secure_url;
-        console.log(imageUrl) // In đường dẫn URL của ảnh đã tải lên từ Cloudinary
-        // Gán giá trị vào thuộc tính product.img
+        console.log(imageUrl);
         this.user.image = imageUrl;
-        // Tại đây, bạn có thể sử dụng đường dẫn URL để thực hiện các thao tác khác hoặc lưu vào biến trong ứng dụng của bạn
-        this.uploading = false; // Cập nhật biến cờ khi hoàn thành quá trình tải lên
-        alert('thanh cong')
-        // console.log(this.image)
+        this.uploading = false;
+        alert('thanh cong');
       },
-        (error: any) => {
-          console.error('Error:', error);
-        });
+      (error: any) => {
+        console.error('Error:', error);
+      });
   }
-}
 
+
+}
