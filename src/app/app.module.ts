@@ -9,7 +9,7 @@ import { ListProductComponent } from './component/admin/list-product/list-produc
 import { ListCategoryComponent } from './component/admin/list-category/list-category.component';
 import { AddCategoriesComponent } from './component/admin/add-categories/add-categories.component';
 import { NgModule } from '@angular/core';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './component/admin/add-product/add-product.component';
 import { EditProductComponent } from './component/admin/edit-product/edit-product.component';
@@ -50,7 +50,8 @@ import { AuthGuardService } from './prive-router.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    NgbModule
 
   ],
   providers: [AuthGuardService],
