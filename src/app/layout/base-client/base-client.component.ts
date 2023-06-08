@@ -25,6 +25,8 @@ export class BaseClientComponent {
     const accessToken = user ? user.accessToken : undefined;
     this.user = user;
     console.log(this.user);
+    this.user = user.user;
+    // console.log(this.user);
     if (accessToken) {
       return true;
     }
