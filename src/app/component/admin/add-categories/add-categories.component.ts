@@ -40,7 +40,7 @@ export class AddCategoriesComponent {
   //   })
   // }
   HandleAdd(){
-    if(this.categoryForm.valid){
+   
       this.category = {
         name: this.categoryForm.value.name || "",
         img:this.imageUrl
@@ -51,7 +51,7 @@ export class AddCategoriesComponent {
         toastr.success('Thêm thành công danh mục !!')
       })
 
-    }
+    
   }
   HandleUpload(fileInput: any) {
     this.uploading = true;

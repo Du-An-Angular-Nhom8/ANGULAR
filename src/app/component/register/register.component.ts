@@ -50,6 +50,7 @@ export class RegisterComponent {
         image: this.user.image || "",
       }
       console.log(this.user);
+      
       this.signupService.Signup(this.user).subscribe(data => {
         this.router.navigate(['/login']);
         toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
