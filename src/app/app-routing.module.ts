@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: '', component:BaseClientComponent ,children:[
     { path: '', component: HomePageComponent },
     { path: 'product/:id/category', component: ProductCatComponent },
-    { path: 'product/:id/detail',component:ProductDetailComponent}
+    { path: 'product/:id/detail',component:ProductDetailComponent},
     { path: 'cart', component: AddToCartComponent },
     { path: 'checkout', component: CheckOutComponent },
   ]
