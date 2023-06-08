@@ -47,14 +47,13 @@ export class RegisterComponent {
         email: this.userForm.value.email || "",
         password: this.userForm.value.password || "",
         confirmpassword: this.userForm.value.confirmpassword || "",
-        image: this.userForm.value.image || "",
+        image: this.user.image || "",
       }
       console.log(this.user);
-      
-      // this.signupService.Signup(this.user).subscribe(data => {
-      //   this.router.navigate(['/login']);
-      //   toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
-      // });
+      this.signupService.Signup(this.user).subscribe(data => {
+        this.router.navigate(['/login']);
+        toastr.success('Bạn đăng ký thành công. Hãy đăng nhập !');
+      });
     }
   }
 
