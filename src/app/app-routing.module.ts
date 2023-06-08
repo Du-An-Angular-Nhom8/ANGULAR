@@ -16,6 +16,9 @@ import { HomePageComponent } from './component/page/home-page/home-page.componen
 import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
 import { AuthGuardService } from './prive-router.module';
 import { ProductDetailComponent } from './component/page/product-detail/product-detail.component';
+import { BillProductComponent } from './component/page/bill-product/bill-product.component';
+import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.component';
+import { CheckOutComponent } from './component/page/check-out/check-out.component';
 
 
 const routes: Routes = [
@@ -36,11 +39,16 @@ const routes: Routes = [
     { path: '', component: HomePageComponent },
     { path: 'product/:id/category', component: ProductCatComponent },
     { path: 'product/:id/detail',component:ProductDetailComponent}
+    { path: 'cart', component: AddToCartComponent },
+    { path: 'checkout', component: CheckOutComponent },
   ]
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 
+  { path: 'bill', component: BillProductComponent },
+ 
+  
 ];
 
 @NgModule({
