@@ -23,8 +23,8 @@ export class BaseClientComponent {
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
-    this.user = user;
-    console.log(this.user);
+    this.user = user.user;
+    // console.log(this.user);
     if (accessToken) {
       return true;
     }

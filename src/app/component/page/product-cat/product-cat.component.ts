@@ -12,6 +12,7 @@ export class ProductCatComponent {
   products: any = []
   detailedProducts:any=[]
   defaultImageURL = 'path/to/default-image.jpg';
+
   constructor(private categoryService: CategoryService, private param: ActivatedRoute, private productService: ProductService) {
     this.param.paramMap.subscribe(data => {
       const id = String(data.get('id'));
@@ -31,7 +32,7 @@ export class ProductCatComponent {
         }
         this.detailedProducts.push(data.data);
         console.log(this.detailedProducts);
-        
+
       });
     }
   }
