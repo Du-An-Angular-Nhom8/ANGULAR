@@ -42,7 +42,7 @@ import { AuthGuardService } from './prive-router.module';
     LoginComponent,
     ProductDetailComponent,
     ProductCatComponent,
-   
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +50,6 @@ import { AuthGuardService } from './prive-router.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
     CommonModule
 
   ],

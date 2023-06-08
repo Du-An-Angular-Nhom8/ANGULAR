@@ -24,7 +24,7 @@ export class BaseClientComponent {
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
     this.user = user.user;
-    console.log(this.user);
+    // console.log(this.user);
     if (accessToken) {
       return true;
     }

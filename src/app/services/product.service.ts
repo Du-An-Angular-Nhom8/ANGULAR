@@ -7,9 +7,11 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
   getAll(){
-    
+
     return this.http.get(`http://localhost:8080/api/product`)
   }
+
+
   getNewproduct() {
     return this.http.get(`http://localhost:8080/api/product?_sort=createdAt&_order=desc&_limit=8&_page=1`)
   }
@@ -19,6 +21,10 @@ export class ProductService {
   getOne(id: string | number) {
     return this.http.get(`http://localhost:8080/api/product/${id}`)
   }
+  getById(id:string | number){
+    return this.http.get(`http://localhost:8080/api/product/${id}`)
+  }
+  //xoa
   Remove(id:string|number) {
     const user = JSON.parse(localStorage.getItem('user')!)
     const accessToken = user ? user.accessToken : undefined;
@@ -28,6 +34,7 @@ export class ProductService {
         }
     })
   }
+  //them
   AddPro(pro:any) {
     const user = JSON.parse(localStorage.getItem('user')!)
     const accessToken = user ? user.accessToken : undefined;
@@ -37,6 +44,7 @@ export class ProductService {
       }
     })
   }
+  //sua
   EditPro(pro: any) {
     const user = JSON.parse(localStorage.getItem('user')!)
     const accessToken = user ? user.accessToken : undefined;
@@ -46,5 +54,6 @@ export class ProductService {
       }
     })
   }
+  //
 
 }
