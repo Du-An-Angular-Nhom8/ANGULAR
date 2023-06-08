@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import * as toastr from 'toastr';
+import { FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-edit-product',
@@ -12,34 +14,78 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditProductComponent {
   product: any = {
+    _id: "",
     name: "",
     price: 0,
     img: "",
     desc: "",
     categoryId: ""
   }
+  productForm = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(8), Validators.pattern(/^\S+(?:\s\S+)*$/
+
+    )]],
+    price: [0, [Validators.min(1)]],
+    img: ['', [Validators.required]],
+    desc: ['', [Validators.required]],
+    categoryId: ['', [Validators.required]]
+  })
   categories: any = []
   uploading: boolean = false;
-  constructor(private productService: ProductService, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param: ActivatedRoute) {
-    this.param.paramMap.subscribe(data=>{
-      const id = String(data.get('id'));
-      this.productService.getOne(id).subscribe((data:any)=>{
-        this.product=data.data
+  imageUrl: any = {
+
+  }
+  _id = "";
+
+  constructor(private productService: ProductService, private formBuilder: FormBuilder, private router: Router, private categoryService: CategoryService, private http: HttpClient, private param: ActivatedRoute) {
+    this.param.paramMap.subscribe(data => {
+      this._id = String(data.get('id'));
+      this.productService.getOne(this._id).subscribe((data: any) => {
+        this.product = data.data
         console.log(this.product);
 
       })
     })
-    this.categoryService.getAllCat().subscribe((data:any) => {
+    this.categoryService.getAllCat().subscribe((data: any) => {
       this.categories = data
     })
   }
-  HandleEdit() {
-    console.log(this.product)
-    this.productService.EditPro(this.product).subscribe(data => {
-      this.router.navigate(['/admin/products'])
-      toastr.success('Bạn đã update sản phẩm thành công !')
-    })
+  // HandleEdit() {
+  //   console.log(this.product)
+  //   this.productService.EditPro(this.product).subscribe(data => {
+  //     this.router.navigate(['/admin/products'])
+  //     toastr.success('Bạn đã update sản phẩm thành công !')
+  //   })
+  // }
+
+  get validateForm() {
+    return this.productForm.controls
   }
+  //
+  onHandleSubmit() {
+    if (this.productForm.valid) {
+
+
+      this.product = {
+        _id: this._id,
+        name: this.productForm.value.name || "",
+        price: this.productForm.value.price || 0,
+        img: this.product.img,
+        desc: this.productForm.value.desc || "",
+        categoryId: this.productForm.value.categoryId || "",
+      }
+
+      console.log(this.product)
+      this.productService.EditPro(this.product).subscribe(data => {
+        console.log(data);
+        this.router.navigate(['/admin/products'])
+        toastr.success('Bạn đã thêm sản phẩm thành công !')
+
+      })
+    }
+  }
+
+
   HandleUpload(fileInput: any) {
     this.uploading = true;
     const file: File = fileInput.files[0];
