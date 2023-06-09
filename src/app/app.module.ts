@@ -25,6 +25,7 @@ import { ProductDetailComponent } from './component/page/product-detail/product-
 import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
 import { AuthGuardService } from './prive-router.module';
 import { ShopProductComponent } from './component/page/shop-product/shop-product.component';
+import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +44,8 @@ import { ShopProductComponent } from './component/page/shop-product/shop-product
     LoginComponent,
     ProductDetailComponent,
     ProductCatComponent,
-    ShopProductComponent
-
+    ShopProductComponent,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,

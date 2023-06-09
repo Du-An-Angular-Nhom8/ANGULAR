@@ -10,4 +10,7 @@ export class UserService {
   getAllUser() {
     return this.http.get(`http://localhost:8080/api/users`)
   }
+  getOneUser(id:any) {
+    return this.http.get(`http://localhost:8080/api/users/${id}`)
+  }
 }
