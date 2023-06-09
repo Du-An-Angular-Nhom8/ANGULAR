@@ -1,11 +1,16 @@
-
 <div id="header-carousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" interval="2000" wrap="true">
-    <ngb-carousel >
+  <div class="carousel-inner" interval="1000" wrap="true">
+    <ngb-carousel>
       <ng-template ngbSlide>
-        <img class="d-block w-100" style="height:500px;"
-          src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1686248433/carousel-2_ppvbzi.jpg" alt="Slide 1">
-        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <img
+          class="d-block w-100"
+          style="height: 500px"
+          src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1686248433/carousel-2_ppvbzi.jpg"
+          alt="Slide 1"
+        />
+        <div
+          class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+        >
           <h4 class="text-light text-uppercase font-weight-medium mb-3">
             10% Off Your First Order
           </h4>
@@ -16,9 +21,15 @@
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img class="d-block w-100" style="height:500px;"
-          src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1686248426/carousel-1_liyyci.jpg" alt="Slide 1">
-        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <img
+          class="d-block w-100"
+          style="height: 500px"
+          src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1686248426/carousel-1_liyyci.jpg"
+          alt="Slide 1"
+        />
+        <div
+          class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+        >
           <h4 class="text-light text-uppercase font-weight-medium mb-3">
             10% Off Your First Order
           </h4>
@@ -30,9 +41,7 @@
       </ng-template>
       <!-- Thêm các ngb-slide khác nếu cần -->
     </ngb-carousel>
-    
   </div>
-  
 </div>
 <!-- Featured Start -->
 <div class="container-fluid pt-5">
@@ -142,7 +151,12 @@
         <div
           class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
         >
-          <img class="img-fluid w-100" src="{{ product.img }}" alt="" />
+          <img
+            class="img-fluid w-100"
+            src="{{ product.img }}"
+            alt=""
+            width=""
+          />
         </div>
         <div
           class="card-body border-left border-right text-center p-0 pt-4 pb-3"
@@ -226,7 +240,9 @@
           </div>
         </div>
         <div class="card-footer d-flex justify-content-between bg-light border">
-          <a  routerLink="/product/{{ product._id }}/detail" class="btn btn-sm text-dark p-0"
+          <a
+            routerLink="/product/{{ product._id }}/detail"
+            class="btn btn-sm text-dark p-0"
             ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
           >
           <a href="" class="btn btn-sm text-dark p-0"
