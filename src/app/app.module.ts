@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from './component/page/product-detail/product-detail.component';
 import { ProductCatComponent } from './component/page/product-cat/product-cat.component';
 import { AuthGuardService } from './prive-router.module';
+import { ShopProductComponent } from './component/page/shop-product/shop-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { AuthGuardService } from './prive-router.module';
     LoginComponent,
     ProductDetailComponent,
     ProductCatComponent,
+    ShopProductComponent
 
   ],
   imports: [
