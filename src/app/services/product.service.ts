@@ -10,8 +10,6 @@ export class ProductService {
 
     return this.http.get(`http://localhost:8080/api/product`)
   }
-
-
   getNewproduct() {
     return this.http.get(`http://localhost:8080/api/product?_sort=createdAt&_order=desc&_limit=8&_page=1`)
   }
@@ -54,6 +52,14 @@ export class ProductService {
       }
     })
   }
-  //
+  //getProductPriceAscending
+  getProductPriceAscending(){
+    return this.http.get(`http://localhost:8080/api/product/ascend`)
+  }
+  //getProductPriceDescending
+  getProductPriceDescending(){
+    return this.http.get(`http://localhost:8080/api/product/Descend`)
+  }
+
 
 }
