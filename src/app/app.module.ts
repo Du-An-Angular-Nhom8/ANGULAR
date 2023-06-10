@@ -29,6 +29,7 @@ import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 
+import { CheckOutComponent } from './component/page/check-out/check-out.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +50,9 @@ import { MatSelectModule } from '@angular/material/select';
     ProductCatComponent,
     ShopProductComponent,
     AddToCartComponent,
-
+    CheckOutComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
