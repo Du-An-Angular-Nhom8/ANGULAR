@@ -26,6 +26,9 @@ import { ProductCatComponent } from './component/page/product-cat/product-cat.co
 import { AuthGuardService } from './prive-router.module';
 import { ShopProductComponent } from './component/page/shop-product/shop-product.component';
 import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +48,8 @@ import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.com
     ProductDetailComponent,
     ProductCatComponent,
     ShopProductComponent,
-    AddToCartComponent
+    AddToCartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.com
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatSelectModule
 
   ],
   providers: [AuthGuardService],
