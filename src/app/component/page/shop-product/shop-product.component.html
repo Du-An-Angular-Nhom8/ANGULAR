@@ -1,6 +1,3 @@
-
-
-
 <div class="container-fluid bg-secondary mb-5">
   <div
     class="d-flex flex-column align-items-center justify-content-center"
@@ -207,20 +204,24 @@
           <div
             class="d-flex align-items-center justify-content-between mb-4 mt-4"
           >
-            <form action="">
+            <form (submit)="HandleSearchProduct()">
               <div class="input-group">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Search by name"
+                  name="searchKeyword"
+                  [(ngModel)]="searchKeyword"
+                  [ngModelOptions]="{ standalone: true }"
                 />
                 <div class="input-group-append">
-                  <span class="input-group-text bg-transparent text-primary">
+                  <button class="btn btn-primary" type="submit">
                     <i class="fa fa-search"></i>
-                  </span>
+                  </button>
                 </div>
               </div>
             </form>
+
             <div class="dropdown ml-4">
               <select
                 class="form-select"
