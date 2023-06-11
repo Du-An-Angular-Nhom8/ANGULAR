@@ -18,6 +18,9 @@ export class AddToCartComponent {
   soluong: number = 1
   productTotalPrice: number = 0;
   constructor(private cartService: CartService, private productService: ProductService) {
+
+
+
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
     const idUser = user && user.user ? user.user.cart : undefined;
@@ -63,32 +66,33 @@ export class AddToCartComponent {
       // Tính tổng giá trị của các sản phẩm
       let total = 0;
       let total1 = 0
-   
+
       // console.log(soluong);
       for (let product of data.products) {
         this.productService.getOne(product).subscribe((data: any) => {
           // console.log(data.data.price * this.quantity);
-          this.productTotalPrice = data.data.price 
+          this.productTotalPrice = data.data.price
           // const price = data.data.price * this.quantity
 
 
           // const price = data.data.price * this.quantity;
 
-          
-          total += this.productTotalPrice;
-          this.totalPrice=total
 
+          total += this.productTotalPrice;
+          this.totalPrice = total
+         
+          
 
         })
       }
-
+    
     });
 
   }
   calculateProductTotalPrice(product: any) {
-  
+
     // console.log(this.productTotalPrice);
-    
+
   }
   ngOnInit() {
     // Lấy thông tin cart từ service

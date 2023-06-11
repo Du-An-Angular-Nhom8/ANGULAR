@@ -28,4 +28,7 @@ export class CartService {
       }
     })
   }
+  DeleteAllProductAndPriceInCart(id:any){
+    return this.http.delete(`http://localhost:8080/api/cart/${id}/product`)
+  }
 }

@@ -19,41 +19,41 @@
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <label>Full Name</label>
-                        <input class="form-control" type="text" placeholder="John">
+                        <input class="form-control" type="text" placeholder="Full Name" name="name"  [(ngModel)]="checkout.name">
                     </div>
 
                     <div class="col-md-6 form-group">
                         <label>E-mail</label>
-                        <input class="form-control" type="text" placeholder="example@email.com">
+                        <input class="form-control" type="text" placeholder="example@email.com" name="email" [(ngModel)]="checkout.email">
                     </div>
 
                     <div class="col-md-6 form-group">
                         <label>Your House Number</label>
-                        <input class="form-control" type="text" placeholder="123 Street">
+                        <input class="form-control" type="text" placeholder="123 Street" name="numberHouse" (change)="handleNumberHouse()" [(ngModel)]="checkout.numberHouse">
                     </div>
                     <div class="col-md-6 form-group">
                         <label>Mobile No</label>
-                        <input class="form-control" type="text" placeholder="+123 456 789">
+                        <input class="form-control" type="text" placeholder="+123 456 789" name="phone" (change)="handlePhone()" [(ngModel)]="checkout.phone">
                     </div>
                     <div class="col-md-6 form-group">
                         <label>Tỉnh</label>
-                        <select class="custom-select" (change)="getDistrictsByProvinceId($event)" [(ngModel)]="checkout.province">
+                        <select class="custom-select" (change)="getDistrictsByProvinceId($event)"  [(ngModel)]="provinceId" name="provinceId">
                             <option value="">--- Chọn tỉnh ---</option>
-                            <option *ngFor="let province of provinces" value="{{province.code}}">{{
+                            <option *ngFor="let province of provinces" [ngValue]="{name: province.name, value: province.code}">{{
                                 province.name }}</option>
                         </select>
 
                         <label>Huyện</label>
                         <select class="custom-select" (change)="getWardsByDistrictId($event)" [(ngModel)]="districtId">
                             <option value="">--- Chọn huyện ---</option>
-                            <option *ngFor="let district of districts" value="{{district.code}}">{{ district.name }}
+                            <option *ngFor="let district of districts" [ngValue]="{name: district.name, value: district.code}">{{ district.name }}
                             </option>
                         </select>
 
                         <label>Xã</label>
-                        <select class="custom-select" [(ngModel)]="wardId">
+                        <select class="custom-select" (change)="defaulBill()"  [(ngModel)]="wardId">
                             <option value="">--- Chọn xã ---</option>
-                            <option *ngFor="let ward of wards" value="{{ward.code}}">{{ ward.name }}</option>
+                            <option *ngFor="let ward of wards" [ngValue]="{name: ward.name, value: ward.code}">{{ ward.name }}</option>
                         </select>
                     </div>
 
@@ -68,18 +68,11 @@
                 </div>
                 <div class="card-body">
                     <h5 class="font-weight-medium mb-3">Products</h5>
-                    <div class="d-flex justify-content-between">
-                        <p>Colorful Stylish Shirt 1</p>
-                        <p>$150</p>
+                    <div class="d-flex justify-content-between" *ngFor="let product of products">
+                        <p>{{product.name}}</p>
+                        <p>$ {{product.price}}</p>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Colorful Stylish Shirt 2</p>
-                        <p>$150</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Colorful Stylish Shirt 3</p>
-                        <p>$150</p>
-                    </div>
+                   
                     <hr class="mt-0">
                   
                     <div class="d-flex justify-content-between">
@@ -90,7 +83,7 @@
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">$160</h5>
+                        <h5 class="font-weight-bold">$ {{checkout.price}}</h5>
                     </div>
                 </div>
             </div>
@@ -102,13 +95,13 @@
                     
                     <div class="">
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
-                            <label class="custom-control-label" for="banktransfer">Payment on delivery</label>
+                            <input type="radio" class="custom-control-input" name="payment" id="banktransfer" value="Payment on delivery" (change)="HandlePay($event)">
+                            <label class="custom-control-label" for="banktransfer" >Payment on delivery</label>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer border-secondary bg-transparent">
-                    <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
+                    <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" (click)="addToBill()" routerLink="/bill">Place Order</button>
                 </div>
             </div>
         </div>
