@@ -16,5 +16,14 @@ constructor(private http: HttpClient) { }
       }
     })
   }
+  SearchBill(id: any) {
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const accessToken = user ? user.accessToken : undefined;
+    return this.http.get(`http://localhost:8080/api/bill/${id}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
+  }
 
 }
