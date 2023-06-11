@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 
 import { CheckOutComponent } from './component/page/check-out/check-out.component';
+import { BillProductComponent } from './component/page/bill-product/bill-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { CheckOutComponent } from './component/page/check-out/check-out.componen
     ProductCatComponent,
     ShopProductComponent,
     AddToCartComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    BillProductComponent
   ],
   imports: [
     AppRoutingModule,
