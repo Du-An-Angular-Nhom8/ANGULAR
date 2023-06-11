@@ -31,6 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { CheckOutComponent } from './component/page/check-out/check-out.component';
 import { BillProductComponent } from './component/page/bill-product/bill-product.component';
+import { ListBillComponent } from './component/page/list-bill/list-bill.component';
+import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,9 @@ import { BillProductComponent } from './component/page/bill-product/bill-product
     ShopProductComponent,
     AddToCartComponent,
     CheckOutComponent,
-    BillProductComponent
+    BillProductComponent,
+    ListBillComponent,
+    BillDetailComponent
   ],
   imports: [
     AppRoutingModule,

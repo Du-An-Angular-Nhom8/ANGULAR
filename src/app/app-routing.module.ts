@@ -21,6 +21,8 @@ import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.com
 import { CheckOutComponent } from './component/page/check-out/check-out.component';
 import { ShopProductComponent } from './component/page/shop-product/shop-product.component';
 import { UserComponent } from './component/page/user/user.component';
+import { ListBillComponent } from './component/page/list-bill/list-bill.component';
+import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,8 @@ const routes: Routes = [
     { path: 'checkout', component: CheckOutComponent },
     { path: 'shop', component: ShopProductComponent },
     { path: 'user', component: UserComponent },
+    { path: 'listbill', component: ListBillComponent },
+    { path: 'listbill/:id', component: BillDetailComponent },
   ]
   },
 

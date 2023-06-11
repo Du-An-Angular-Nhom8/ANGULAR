@@ -5,6 +5,7 @@ import { MapService } from 'src/app/services/map.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { BillService } from 'src/app/services/bill.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-out',
@@ -33,7 +34,7 @@ export class CheckOutComponent {
     payment: '',
     date: ''
   }
-  constructor(private provinceApiService: MapService, private cartService: CartService, private productService: ProductService, private billService: BillService) {
+  constructor(private provinceApiService: MapService, private cartService: CartService, private productService: ProductService, private billService: BillService,private router:Router) {
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
     const idUser = user && user.user ? user.user._id : undefined;
@@ -113,6 +114,7 @@ export class CheckOutComponent {
   HandlePay(value: any) {
     console.log(value.target.value);
     this.checkout.payment = value.target.value;
+
   }
   defaulBill() {
     this.checkout.ward = this.wardId.name
@@ -125,7 +127,7 @@ export class CheckOutComponent {
   }
   addToBill() {
     this.billService.AddBill(this.checkout).subscribe(data => {
-      alert('Add bill successfully')
+      // alert('Add bill successfully')
       console.log(data);
       localStorage.setItem('bill', JSON.stringify(data));
 
@@ -135,6 +137,8 @@ export class CheckOutComponent {
       this.cartService.DeleteAllProductAndPriceInCart(idCart).subscribe(data => {
 
       })
+      this.router.navigate(['/bill'])
     })
+   
   }
 }
