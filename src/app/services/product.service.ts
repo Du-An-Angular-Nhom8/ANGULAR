@@ -60,6 +60,10 @@ export class ProductService {
   getProductPriceDescending(){
     return this.http.get(`http://localhost:8080/api/product/Descend`)
   }
+  //search product
+  searchProduct(){
+    return this.http.get(`http://localhost:8080/api/product/search`)
+  }
 
 
 }

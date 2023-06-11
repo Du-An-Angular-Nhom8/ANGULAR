@@ -21,9 +21,9 @@ export class BaseClientComponent {
     const accessToken = user ? user.accessToken : undefined;
     const idUser = user && user.user ? user.user.cart: undefined;
     this.cartservice.getOneCat(idUser).subscribe((data:any)=>{
-      console.log(data.products);
+      // console.log(data.products);
       this.quantity=data.products
-      
+
     })
   }
   HandleLogOut(){

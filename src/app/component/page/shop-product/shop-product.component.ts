@@ -14,6 +14,7 @@ import { UserService } from '../../../services/user.service';
 
 export class ShopProductComponent {
   products: any = [];
+  searchKeyword: string = '';
   dataCart: any = {
     _id: '',
     price: 0
@@ -114,7 +115,7 @@ export class ShopProductComponent {
       });
     })
   }
-
+  //ascend
   async HandleGetByPriceAscend() {
     try {
       this.products = [];
@@ -125,7 +126,7 @@ export class ShopProductComponent {
       console.error(error);
     }
   }
-
+  //descend
   async HandleGetByPriceDescend() {
     try {
       this.products = [];
@@ -145,6 +146,18 @@ export class ShopProductComponent {
       this.HandleGetByPriceDescend();
     } else if (value === '3') {
       // quay lai trạng thái ban đầu của các sản phẩm
+      this.products = this.initialProducts;
+    }
+  }
+
+
+  // search Product
+  HandleSearchProduct(){
+    if (this.searchKeyword.trim() !== '') {
+      this.products = this.initialProducts.filter((product: any) =>
+        product.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+      );
+    } else {
       this.products = this.initialProducts;
     }
   }
