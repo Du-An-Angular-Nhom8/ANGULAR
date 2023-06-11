@@ -20,6 +20,7 @@ import { BillProductComponent } from './component/page/bill-product/bill-product
 import { AddToCartComponent } from './component/page/add-to-cart/add-to-cart.component';
 import { CheckOutComponent } from './component/page/check-out/check-out.component';
 import { ShopProductComponent } from './component/page/shop-product/shop-product.component';
+import { UserComponent } from './component/page/user/user.component';
 
 
 const routes: Routes = [
@@ -43,8 +44,10 @@ const routes: Routes = [
     { path: 'cart', component: AddToCartComponent },
     { path: 'checkout', component: CheckOutComponent },
     { path: 'shop', component: ShopProductComponent },
+    { path: 'user', component: UserComponent },
   ]
   },
+
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 

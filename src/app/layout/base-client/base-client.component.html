@@ -206,7 +206,7 @@
                   Register
                 </button>
                 <div class="user-info" *ngIf="isLoggedIn()">
-                  <div class="user-info__img">
+                  <div class="user-info__img" routerLink="/user">
                     <img src="{{ user.user.image }}" alt="User Img" />
                   </div>
                 </div>
