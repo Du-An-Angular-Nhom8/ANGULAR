@@ -58,8 +58,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" routerLink="/admin/products"  data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" routerLink="/admin/products" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>List Product</span>
                 </a>
@@ -67,20 +67,26 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" routerLink="/admin/category"  data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" routerLink="/admin/category" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>List Category</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" routerLink="/admin/users" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
-                    aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-user"></i>
+                <a class="nav-link collapsed" routerLink="/admin/users" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-user"></i>
                     <span>List User</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" routerLink="/admin/bills" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>List Bill</span>
+                </a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -318,9 +324,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1681658177/NODEJS/u51gt9e9ojozdqdonoyo.jpg">
+                                <img class="img-profile rounded-circle"
+                                    src="https://res.cloudinary.com/dw6wgytc3/image/upload/v1681658177/NODEJS/u51gt9e9ojozdqdonoyo.jpg">
                                 <button class="btn btn-success logout" (click)="HandleLogOut()">LogOut</button>
-                                
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -351,7 +358,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-               <router-outlet/>
+                <router-outlet />
                 <!-- /.container-fluid -->
 
             </div>

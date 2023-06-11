@@ -28,5 +28,9 @@ export class BillService {
   GetOneBill(id: any) {
     return this.http.get(`http://localhost:8080/api/bill/${id}`)
   }
+  GetAllBill() {
+    return this.http.get(`http://localhost:8080/api/bill`)
+  }
+
 
 }

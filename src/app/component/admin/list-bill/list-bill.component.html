@@ -1,16 +1,3 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<div class="container-fluid bg-secondary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">list bill</h1>
-        <div class="d-inline-flex">
-            <p class="m-0"><a href="/">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0"><a href="/user">User</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">ListBill</p>
-        </div>
-    </div>
-</div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -23,8 +10,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="border-0 text-uppercase font-medium pl-4">Stt</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Name</th> 
                                 <th scope="col" class="border-0 text-uppercase font-medium">Time</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Address</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Phone</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Payment Methods</th>
                                 <th scope="col" class="border-0 text-uppercase font-medium">Price</th>
                                 <th scope="col" class="border-0 text-uppercase font-medium"></th>
                             </tr>
@@ -34,11 +24,20 @@
                                 <td class="pl-4">{{i+1}}</td>
                                 <td>
                                     <h5 class="font-medium mb-0">{{bill.name}}</h5>
-                                    <span class="text-muted">{{bill.numberHouse}},{{bill.ward}}, {{bill.district}} , {{bill.province}}</span>
+                                    <span class="text-muted">{{bill.numberHouse}},{{bill.ward}}, {{bill.district}} ,
+                                        {{bill.province}}</span>
                                 </td>
                                 <td>
                                     <span class="text-muted">{{bill.date}}</span><br>
                                     <!-- <span class="text-muted">Past : teacher</span> -->
+                                </td>
+                                <td>
+                                    <span class="text-muted">{{bill.numberHouse}}, {{bill.ward}}, {{bill.district}}, {{bill.province}}</span><br>
+                                    <!-- <span class="text-muted">999 - 444 - 555</span> -->
+                                </td>
+                                <td>
+                                    <span class="text-muted">{{bill.phone}}</span><br>
+                                    <!-- <span class="text-muted">999 - 444 - 555</span> -->
                                 </td>
                                 <td>
                                     <span class="text-muted">{{bill.price}}</span><br>
@@ -49,9 +48,9 @@
                                             class="fas fa-eye text-primary mr-1"></i>Bill
                                         Detail</a>
                                 </td>
-                               
+
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>

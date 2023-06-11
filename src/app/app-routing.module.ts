@@ -23,11 +23,11 @@ import { ShopProductComponent } from './component/page/shop-product/shop-product
 import { UserComponent } from './component/page/user/user.component';
 import { ListBillComponent } from './component/page/list-bill/list-bill.component';
 import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
-
+import { ListBillsComponent } from './component/admin/list-bill/list-bill.component'
 
 const routes: Routes = [
   {
-    path: 'admin', component: AdminLayoutComponent ,canActivate: [AuthGuardService], children: [
+    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuardService], children: [
       { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
       { path: 'dashbord', component: DashbordComponent },
       { path: 'products', component: ListProductComponent },
@@ -36,28 +36,30 @@ const routes: Routes = [
       { path: 'category', component: ListCategoryComponent },
       { path: 'category/add', component: AddCategoriesComponent },
       { path: 'users', component: ListUserComponent },
-      {path:'category/:id/edit',component: EditCategoriesComponent}
+      { path: 'category/:id/edit', component: EditCategoriesComponent },
+      { path: 'bills', component: ListBillsComponent },
     ]
   },
-  {path: '', component:BaseClientComponent ,children:[
-    { path: '', component: HomePageComponent },
-    { path: 'product/:id/category', component: ProductCatComponent },
-    { path: 'product/:id/detail',component:ProductDetailComponent},
-    { path: 'cart', component: AddToCartComponent },
-    { path: 'checkout', component: CheckOutComponent },
-    { path: 'shop', component: ShopProductComponent },
-    { path: 'user', component: UserComponent },
-    { path: 'listbill', component: ListBillComponent },
-    { path: 'listbill/:id', component: BillDetailComponent },
-  ]
+  {
+    path: '', component: BaseClientComponent, children: [
+      { path: '', component: HomePageComponent },
+      { path: 'product/:id/category', component: ProductCatComponent },
+      { path: 'product/:id/detail', component: ProductDetailComponent },
+      { path: 'cart', component: AddToCartComponent },
+      { path: 'checkout', component: CheckOutComponent },
+      { path: 'shop', component: ShopProductComponent },
+      { path: 'user', component: UserComponent },
+      { path: 'listbill', component: ListBillComponent },
+      { path: 'listbill/:id', component: BillDetailComponent },
+    ]
   },
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 
   { path: 'bill', component: BillProductComponent },
- 
-  
+
+
 ];
 
 @NgModule({
