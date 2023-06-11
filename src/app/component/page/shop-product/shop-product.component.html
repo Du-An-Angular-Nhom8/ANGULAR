@@ -214,11 +214,15 @@
                   [(ngModel)]="searchKeyword"
                   [ngModelOptions]="{ standalone: true }"
                 />
+
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="submit">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
+              </div>
+              <div *ngIf="noProductsFound" class="no-products">
+                Không có sản phẩm!
               </div>
             </form>
 

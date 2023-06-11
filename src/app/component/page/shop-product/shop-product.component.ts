@@ -15,6 +15,8 @@ import { UserService } from '../../../services/user.service';
 export class ShopProductComponent {
   products: any = [];
   searchKeyword: string = '';
+  noProductsFound: boolean = false;
+
   dataCart: any = {
     _id: '',
     price: 0
@@ -152,15 +154,18 @@ export class ShopProductComponent {
 
 
   // search Product
-  HandleSearchProduct(){
+  HandleSearchProduct() {
     if (this.searchKeyword.trim() !== '') {
       this.products = this.initialProducts.filter((product: any) =>
         product.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
       );
+      this.noProductsFound = this.products.length === 0; // Kiểm tra nếu không có kết quả tìm kiếm
     } else {
       this.products = this.initialProducts;
+      this.noProductsFound = false; // Đặt lại giá trị khi không có từ khóa tìm kiếm
     }
   }
+
 }
 
 
