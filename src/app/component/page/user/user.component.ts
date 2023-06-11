@@ -21,7 +21,7 @@ export class UserComponent {
     })
     this.BillService.SearchBill(user.user._id).subscribe(data => {
       console.log(data);
-      this.quantitybill=data
-  })
+      this.quantitybill = data
+    })
   }
 }

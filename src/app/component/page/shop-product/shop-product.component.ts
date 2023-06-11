@@ -45,8 +45,8 @@ export class ShopProductComponent {
     const carrt = user && user.user ? user.user.cart : undefined
     this.dataCart._id = id
     // if (!carrt) {
-      // alert("okok")
-      // ... các thao tác khác
+    // alert("okok")
+    // ... các thao tác khác
 
     //   const pass: any = prompt('Hãy nhập mật khẩu để tạo giỏ hàng')
     //   if (pass !== null) {
@@ -71,7 +71,7 @@ export class ShopProductComponent {
     //         this.dataCart._id = id
     //         this.dataCart.price = data.data.price
     //         console.log(this.dataCart);
-      
+
 
     //         this.cartService.AddToCart(this.dataCart).subscribe(data => {
     //           console.log('addtocart thanh cong');
@@ -93,11 +93,11 @@ export class ShopProductComponent {
     //   this.showPasswordInput = false;
     // }
     this.productService.getOne(id).subscribe((data: any) => {
-     
-      this.dataCart._id=id
-      this.dataCart.price=data.data.price
+
+      this.dataCart._id = id
+      this.dataCart.price = data.data.price
       console.log(this.dataCart);
-    
+
       this.cartService.AddToCart(this.dataCart).subscribe(data => {
         console.log('addtocart thanh cong');
         const ok = confirm('Bạn đã thêm sản phẩm vào giỏ hàng. Hãy kiểm tra !')
