@@ -33,6 +33,7 @@ import { CheckOutComponent } from './component/page/check-out/check-out.componen
 import { BillProductComponent } from './component/page/bill-product/bill-product.component';
 import { ListBillComponent } from './component/page/list-bill/list-bill.component';
 import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
+import { ListBillsComponent } from './component/admin/list-bill/list-bill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { BillDetailComponent } from './component/page/bill-detail/bill-detail.co
     CheckOutComponent,
     BillProductComponent,
     ListBillComponent,
-    BillDetailComponent
+    BillDetailComponent,
+    ListBillsComponent
   ],
   imports: [
     AppRoutingModule,
