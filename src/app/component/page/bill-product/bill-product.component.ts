@@ -25,10 +25,10 @@ export class BillProductComponent {
   constructor(private router: Router, private productService: ProductService){
     const bill = JSON.parse(localStorage.getItem('bill')!);
     const listBill  = bill ? bill.data : undefined;
-    this.bill=listBill;
+    this.bill=bill.data;
   //  console.log(listBill.products);
    
-    for (let id of bill.data.products){
+    for (let id of this.bill.products){
         this.productService.getById(id).subscribe((data:any)=>{
           console.log(data);
          this.products.push(data.data);

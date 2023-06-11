@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BillService {
 
-constructor(private http: HttpClient) { }
-  AddBill(dataBill:any){
+  constructor(private http: HttpClient) { }
+  AddBill(dataBill: any) {
     const user = JSON.parse(localStorage.getItem('user')!)
     const accessToken = user ? user.accessToken : undefined;
-    return this.http.post(`http://localhost:8080/api/bill/add`,dataBill,{
+    return this.http.post(`http://localhost:8080/api/bill/add`, dataBill, {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
@@ -19,11 +19,14 @@ constructor(private http: HttpClient) { }
   SearchBill(id: any) {
     const user = JSON.parse(localStorage.getItem('user')!)
     const accessToken = user ? user.accessToken : undefined;
-    return this.http.get(`http://localhost:8080/api/bill/${id}`, {
+    return this.http.get(`http://localhost:8080/api/bill/${id}/search`, {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
     })
+  }
+  GetOneBill(id: any) {
+    return this.http.get(`http://localhost:8080/api/bill/${id}`)
   }
 
 }
