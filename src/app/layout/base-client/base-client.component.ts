@@ -56,7 +56,7 @@ export class BaseClientComponent {
     this.router.navigate(['/'])
   }
 
-  selectedCategory: any;
+  selectedCategory: any = null;
 
   onCategoryChange() {
     if (this.selectedCategory) {
