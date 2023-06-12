@@ -99,14 +99,14 @@
       <div class="col-lg-3 d-none d-lg-block">
         <select class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
           data-toggle="collapse" id="navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px"
-          [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+           [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
           <option class="cat" style="
                 line-height: 65px;
                 margin-top: -1px;
                 padding: 0 30px;
                 background-color: rgb(255, 255, 255);
                 color: black;
-              ">
+              "  [value]="null" [selected]="selectedCategory === null" >
             Categories
           </option>
           <option style="
@@ -115,7 +115,7 @@
                 padding: 0 30px;
                 background-color: rgb(255, 255, 255);
                 color: black;
-              " *ngFor="let category of categories" [value]="category._id">
+              "  *ngFor="let category of categories" [value]="category._id">
             {{category.name}}
           </option>
 
