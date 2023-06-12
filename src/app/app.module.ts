@@ -34,6 +34,10 @@ import { BillProductComponent } from './component/page/bill-product/bill-product
 import { ListBillComponent } from './component/page/list-bill/list-bill.component';
 import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
 import { ListBillsComponent } from './component/admin/list-bill/list-bill.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +72,9 @@ import { ListBillsComponent } from './component/admin/list-bill/list-bill.compon
     CommonModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    RouterModule,
+    BrowserModule
 
   ],
   providers: [AuthGuardService],

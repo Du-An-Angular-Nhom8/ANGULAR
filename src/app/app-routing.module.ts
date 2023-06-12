@@ -24,6 +24,7 @@ import { UserComponent } from './component/page/user/user.component';
 import { ListBillComponent } from './component/page/list-bill/list-bill.component';
 import { BillDetailComponent } from './component/page/bill-detail/bill-detail.component';
 import { ListBillsComponent } from './component/admin/list-bill/list-bill.component'
+import { ListProductByCateComponent } from './component/page/list-product-by-cate/list-product-by-cate.component';
 
 const routes: Routes = [
   {
@@ -43,7 +44,7 @@ const routes: Routes = [
   {
     path: '', component: BaseClientComponent, children: [
       { path: '', component: HomePageComponent },
-      { path: 'product/:id/category', component: ProductCatComponent },
+      { path: 'product/category/:id', component: ProductCatComponent },
       { path: 'product/:id/detail', component: ProductDetailComponent },
       { path: 'cart', component: AddToCartComponent },
       { path: 'checkout', component: CheckOutComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
       { path: 'user', component: UserComponent },
       { path: 'listbill', component: ListBillComponent },
       { path: 'listbill/:id', component: BillDetailComponent },
+      // { path: 'listproduct/category/:id', component: ListProductByCateComponent }
     ]
   },
 
