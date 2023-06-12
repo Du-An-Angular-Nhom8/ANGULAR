@@ -43,6 +43,11 @@ export class ShopProductComponent {
 
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
+    if (!user) {
+      alert('Bạn cần đăng nhập mới có thể mua hàng !!')
+      this.router.navigate(['/login']);
+      return
+    }
     const idUser = user && user.user ? user.user._id : undefined;
     this.dataCart._id = id;
     const carrt = user && user.user ? user.user.cart : undefined

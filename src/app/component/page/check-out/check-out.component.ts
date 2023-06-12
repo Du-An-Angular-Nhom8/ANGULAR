@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { BillService } from 'src/app/services/bill.service';
 import { Router } from '@angular/router';
+import { error } from 'toastr';
 
 @Component({
   selector: 'app-check-out',
@@ -38,6 +39,7 @@ export class CheckOutComponent {
     const user = JSON.parse(localStorage.getItem('user')!);
     const accessToken = user ? user.accessToken : undefined;
     const idUser = user && user.user ? user.user._id : undefined;
+   
     this.cartService.getOneCat(user.user.cart).subscribe((data: any) => {
       let checkprice = 0;
       for (let price of data.price) {
@@ -126,6 +128,7 @@ export class CheckOutComponent {
 
   }
   addToBill() {
+
     this.billService.AddBill(this.checkout).subscribe(data => {
       // alert('Add bill successfully')
       console.log(data);
@@ -138,6 +141,8 @@ export class CheckOutComponent {
 
       })
       this.router.navigate(['/bill'])
+    },error=>{
+      alert('Bạn phải nhập tất cả trường và phương thức thanh toán !')
     })
    
   }
