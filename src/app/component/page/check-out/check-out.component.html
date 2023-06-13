@@ -39,21 +39,21 @@
                         <label>Tỉnh</label>
                         <select class="custom-select" (change)="getDistrictsByProvinceId($event)"  [(ngModel)]="provinceId" name="provinceId">
                             <option value="">--- Chọn tỉnh ---</option>
-                            <option *ngFor="let province of provinces" [ngValue]="{name: province.name, value: province.code}">{{
-                                province.name }}</option>
+                            <option *ngFor="let province of provinces" [ngValue]="{name: province.province_name, value: province.province_id}">{{
+                                province.province_name }}</option>
                         </select>
 
                         <label>Huyện</label>
                         <select class="custom-select" (change)="getWardsByDistrictId($event)" [(ngModel)]="districtId">
                             <option value="">--- Chọn huyện ---</option>
-                            <option *ngFor="let district of districts" [ngValue]="{name: district.name, value: district.code}">{{ district.name }}
+                            <option *ngFor="let district of districts" [ngValue]="{name: district.district_name, value: district.district_id}">{{ district.district_name }}
                             </option>
                         </select>
 
                         <label>Xã</label>
                         <select class="custom-select" (change)="defaulBill()"  [(ngModel)]="wardId">
                             <option value="">--- Chọn xã ---</option>
-                            <option *ngFor="let ward of wards" [ngValue]="{name: ward.name, value: ward.code}">{{ ward.name }}</option>
+                            <option *ngFor="let ward of wards" [ngValue]="{name: ward.ward_name, value: ward.ward_id}">{{ ward.ward_name }}</option>
                         </select>
                     </div>
 

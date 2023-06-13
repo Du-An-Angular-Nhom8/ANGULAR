@@ -11,7 +11,7 @@ export class ListBillsComponent {
   constructor(private BillService: BillService) {
     
     this.BillService.GetAllBill().subscribe((data: any) => {
-      console.log(data.data);
+      console.log(data);
       this.bills = data
     })
   }
