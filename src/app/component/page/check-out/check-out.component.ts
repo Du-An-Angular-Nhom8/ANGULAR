@@ -59,7 +59,7 @@ export class CheckOutComponent {
       this.checkout.name = user.user.name;
       this.checkout.email = user.user.email;
       this.checkout.cart = user.user.cart
-      this.checkout.price = checkprice
+      this.checkout.price = checkprice+10
 
 
     })
