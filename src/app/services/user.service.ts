@@ -13,4 +13,10 @@ export class UserService {
   getOneUser(id:any) {
     return this.http.get(`http://localhost:8080/api/users/${id}`)
   }
+  getAllUserByRole() {
+    return this.http.get(`http://localhost:8080/api/role`)
+  }
+  RemoveUser(id:any) {
+    return this.http.delete(`http://localhost:8080/api/user/${id}`)
+  }
 }

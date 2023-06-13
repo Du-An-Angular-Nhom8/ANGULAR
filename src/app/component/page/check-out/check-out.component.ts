@@ -82,7 +82,7 @@ export class CheckOutComponent {
   getProvinces() {
     this.provinceApiService.getAllProvinces().subscribe(
       (data: any) => {
-        this.provinces = data
+        this.provinces = data.results
       },
       error => {
         console.log(error);
@@ -97,7 +97,9 @@ export class CheckOutComponent {
 
     try {
       const data: any = await this.provinceApiService.getDistrictsByProvinceId(this.provinceId.value).toPromise();
-      this.districts = data.districts;
+      this.districts = data.results;
+      console.log(data);
+      
       this.checkout.province = this.provinceId.name;
     } catch (error) {
       console.log(error);
@@ -107,7 +109,7 @@ export class CheckOutComponent {
 
     try {
       const data: any = await this.provinceApiService.getWardsByDistrictId(this.districtId.value).toPromise();
-      this.wards = data.wards;
+      this.wards = data.results;
       this.checkout.district = this.districtId.name;
     } catch (error) {
       console.log(error);
